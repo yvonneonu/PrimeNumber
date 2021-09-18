@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prime</title>
+  </head>
+
+  <body>
+    <div class="fullScreen">
+      <h1>Prime Checker</h1>
+      <form class="number">
+        <input
+          class="enter_number"
+          placeholder="Enter A Number"
+          type="text"
+          id="fNumber"
+          name="fname"
+        /><br /><br />
+        <button id="myCheckbox" class="click_button">Check</button>
+        <div class="outputContainer">
+          <p class="outputResult">Output</p>
+          <input class="out_put" id="result" type="text" />
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("myCheckbox")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          var number = document.getElementById("fNumber").value;
+          if (isPrime(number)) {
+            document.getElementById("result").value = "Number is prime";
+          } else {
+            document.getElementById("result").value = "Number is not prime";
+
+            //   console.log("Number is not a prime number");
+          }
+          // console.log(number);
+          //   console.log("Number is prime");
+        });
+
+      function isPrime(num) {
+        for (var i = 2; i < num; i++) if (num % i === 0) return false;
+        return num > 1;
+      }
+    </script>
+  </body>
+</html>
